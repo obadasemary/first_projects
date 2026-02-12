@@ -58,6 +58,7 @@ class CharacterDto {
       location: CharacterLocation(name: location.name),
       imageUrl: image,
       episodeCount: episode.length,
+      episodeUrls: episode,
     );
   }
 

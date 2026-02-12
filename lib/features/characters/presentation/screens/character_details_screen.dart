@@ -4,6 +4,7 @@ import 'package:samurai_studios/features/characters/domain/entities/character.da
 import 'package:samurai_studios/features/characters/presentation/widgets/character_info_tab.dart';
 import 'package:samurai_studios/features/characters/presentation/widgets/character_stats_tab.dart';
 import 'package:samurai_studios/features/characters/presentation/widgets/character_location_tab.dart';
+import 'package:samurai_studios/features/characters/presentation/widgets/episode_list_widget.dart';
 
 class CharacterDetailsScreen extends StatefulWidget {
   final Character character;
@@ -115,9 +116,7 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen>
                 // Location Tab
                 CharacterLocationTab(character: widget.character),
                 // Episodes Tab
-                Center(
-                  child: Text('Episodes Tab - Coming soon'),
-                ),
+                EpisodeListWidget(episodeUrls: widget.character.episodeUrls),
               ],
             ),
           ),

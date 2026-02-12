@@ -9,6 +9,7 @@ class Character {
   final CharacterLocation location;
   final String imageUrl;
   final int episodeCount;
+  final List<String> episodeUrls;
 
   const Character({
     required this.id,
@@ -21,6 +22,7 @@ class Character {
     required this.location,
     required this.imageUrl,
     required this.episodeCount,
+    required this.episodeUrls,
   });
 }
 

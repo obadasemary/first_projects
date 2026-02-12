@@ -44,6 +44,7 @@ void main() {
           location: CharacterLocation(name: 'Earth'),
           imageUrl: 'https://example.com/rick.jpg',
           episodeCount: 51,
+          episodeUrls: [],
         ),
       ];
 
@@ -122,6 +123,7 @@ void main() {
           location: CharacterLocation(name: 'Earth'),
           imageUrl: 'https://example.com/rick.jpg',
           episodeCount: 51,
+          episodeUrls: [],
         ),
       ];
 
@@ -137,6 +139,7 @@ void main() {
           location: CharacterLocation(name: 'Earth'),
           imageUrl: 'https://example.com/morty.jpg',
           episodeCount: 51,
+          episodeUrls: [],
         ),
       ];
 
@@ -202,6 +205,7 @@ void main() {
           location: CharacterLocation(name: 'Earth'),
           imageUrl: 'https://example.com/rick.jpg',
           episodeCount: 51,
+          episodeUrls: [],
         ),
       ];
 
