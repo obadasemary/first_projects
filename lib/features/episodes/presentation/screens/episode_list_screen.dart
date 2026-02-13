@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:samurai_studios/features/characters/presentation/providers/character_list_provider.dart';
-import 'package:samurai_studios/features/characters/presentation/widgets/character_card.dart';
-import 'package:samurai_studios/features/characters/presentation/widgets/character_shimmer.dart';
+import 'package:samurai_studios/features/episodes/presentation/providers/episode_list_provider.dart';
+import 'package:samurai_studios/features/episodes/presentation/widgets/episode_card.dart';
+import 'package:samurai_studios/features/episodes/presentation/widgets/episode_shimmer.dart';
 import 'package:samurai_studios/features/characters/presentation/widgets/error_widget.dart';
 
-class CharacterListScreen extends ConsumerStatefulWidget {
-  const CharacterListScreen({super.key});
+class EpisodeListScreen extends ConsumerStatefulWidget {
+  const EpisodeListScreen({super.key});
 
   @override
-  ConsumerState<CharacterListScreen> createState() =>
-      _CharacterListScreenState();
+  ConsumerState<EpisodeListScreen> createState() =>
+      _EpisodeListScreenState();
 }
 
-class _CharacterListScreenState extends ConsumerState<CharacterListScreen> {
+class _EpisodeListScreenState extends ConsumerState<EpisodeListScreen> {
   final ScrollController _scrollController = ScrollController();
 
   @override
@@ -33,34 +33,34 @@ class _CharacterListScreenState extends ConsumerState<CharacterListScreen> {
     if (_scrollController.position.pixels >=
         _scrollController.position.maxScrollExtent - 200) {
       // Load more when user is 200px from bottom
-      final notifier = ref.read(characterListNotifierProvider.notifier);
+      final notifier = ref.read(episodeListNotifierProvider.notifier);
       notifier.loadMore();
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(characterListNotifierProvider);
+    final state = ref.watch(episodeListNotifierProvider);
 
     return Scaffold(
       body: state.when(
         initial: () => const Center(
           child: Text('Initializing...'),
         ),
-        loading: () => const CharacterShimmer(),
-        loaded: (characters, currentPage, hasNextPage, isLoadingMore) {
+        loading: () => const EpisodeShimmer(),
+        loaded: (episodes, currentPage, hasNextPage, isLoadingMore) {
           return RefreshIndicator(
             onRefresh: () async {
               await ref
-                  .read(characterListNotifierProvider.notifier)
+                  .read(episodeListNotifierProvider.notifier)
                   .refresh();
             },
             child: ListView.builder(
               controller: _scrollController,
-              itemCount: characters.length + (isLoadingMore ? 1 : 0),
+              itemCount: episodes.length + (isLoadingMore ? 1 : 0),
               padding: const EdgeInsets.only(top: 8, bottom: 16),
               itemBuilder: (context, index) {
-                if (index >= characters.length) {
+                if (index >= episodes.length) {
                   // Loading more indicator
                   return const Padding(
                     padding: EdgeInsets.all(16),
@@ -69,7 +69,7 @@ class _CharacterListScreenState extends ConsumerState<CharacterListScreen> {
                     ),
                   );
                 }
-                return CharacterCard(character: characters[index]);
+                return EpisodeCard(episode: episodes[index]);
               },
             ),
           );
@@ -77,7 +77,7 @@ class _CharacterListScreenState extends ConsumerState<CharacterListScreen> {
         error: (message) => ErrorDisplay(
           message: message,
           onRetry: () {
-            ref.invalidate(characterListNotifierProvider);
+            ref.invalidate(episodeListNotifierProvider);
           },
         ),
       ),

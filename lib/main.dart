@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:samurai_studios/features/characters/presentation/screens/character_list_screen.dart';
+import 'package:samurai_studios/presentation/screens/home_screen.dart';
 
 void main() {
   runApp(
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Rick & Morty Characters',
+      title: 'Rick & Morty',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const CharacterListScreen(),
+      home: const HomeScreen(),
     );
   }
 }
