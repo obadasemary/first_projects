@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(flutter pub get:*)",
+      "Bash(flutter pub run build_runner build:*)",
+      "Bash(dart run build_runner build:*)",
+      "Bash(flutter run:*)",
+      "Bash(flutter analyze:*)",
+      "Bash(flutter test:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nfeat: Add Episodes tab with bottom navigation\n\n- Implement Episodes feature following clean architecture pattern\n- Add BottomNavigationBar with Characters and Episodes tabs\n- Create episode entity with characterCount field\n- Add episode DTOs with pagination support\n- Implement episode remote data source for paginated API calls\n- Create episode repository with error handling\n- Add episode list screen with infinite scroll and pull-to-refresh\n- Create episode card and shimmer loading widgets\n- Update HomeScreen to wrap both tabs with shared AppBar\n- Add comprehensive unit tests for Episodes feature \\(11/11 passing\\)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
+    ]
+  }
+}
