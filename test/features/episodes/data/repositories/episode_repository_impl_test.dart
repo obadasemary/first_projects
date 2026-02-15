@@ -4,7 +4,7 @@ import 'package:mockito/mockito.dart';
 import 'package:dio/dio.dart';
 import 'package:samurai_studios/core/network/api_result.dart';
 import 'package:samurai_studios/features/episodes/data/datasources/episode_remote_datasource.dart';
-import 'package:samurai_studios/features/episodes/data/models/episode_dto.dart';
+import 'package:samurai_studios/features/episodes/data/models/episode_model.dart';
 import 'package:samurai_studios/features/episodes/data/models/episode_response_dto.dart';
 import 'package:samurai_studios/features/episodes/data/repositories/episode_repository_impl.dart';
 
@@ -31,7 +31,7 @@ void main() {
           prev: null,
         ),
         results: const [
-          EpisodeDto(
+          EpisodeModel(
             id: 1,
             name: 'Pilot',
             airDate: 'December 2, 2013',

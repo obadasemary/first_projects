@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:samurai_studios/core/constants/app_colors.dart';
 import 'package:samurai_studios/features/characters/domain/entities/character.dart';
 import 'package:samurai_studios/features/characters/presentation/widgets/character_info_tab.dart';
 import 'package:samurai_studios/features/characters/presentation/widgets/character_stats_tab.dart';
@@ -42,9 +43,21 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen>
           SliverAppBar(
             expandedHeight: 300,
             pinned: true,
+            leading: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CircleAvatar(
+                backgroundColor: AppColors.black.withValues(alpha: 0.5),
+                child: IconButton(
+                  icon: const Icon(Icons.arrow_back, color: AppColors.white),
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+              ),
+            ),
             bottom: TabBar(
               controller: _tabController,
-              tabs: const [
+              unselectedLabelColor: AppColors.textGrey,
+              labelColor: AppColors.white,
+              tabs: [
                 Tab(text: 'Info', icon: Icon(Icons.info_outline)),
                 Tab(text: 'Stats', icon: Icon(Icons.bar_chart)),
                 Tab(text: 'Location', icon: Icon(Icons.location_on_outlined)),
@@ -60,7 +73,7 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen>
                     Shadow(
                       offset: Offset(0, 1),
                       blurRadius: 3.0,
-                      color: Colors.black45,
+                      color: AppColors.shadow,
                     ),
                   ],
                 ),
@@ -74,17 +87,17 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen>
                       imageUrl: widget.character.imageUrl,
                       fit: BoxFit.cover,
                       placeholder: (context, url) => Container(
-                        color: Colors.grey[300],
+                        color: AppColors.shimmerBase,
                         child: const Center(
                           child: CircularProgressIndicator(),
                         ),
                       ),
                       errorWidget: (context, url, error) => Container(
-                        color: Colors.grey[300],
+                        color: AppColors.shimmerBase,
                         child: const Icon(
                           Icons.person,
                           size: 100,
-                          color: Colors.grey,
+                          color: AppColors.textGrey,
                         ),
                       ),
                     ),
@@ -95,8 +108,8 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen>
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: [
-                          Colors.transparent,
-                          Colors.black.withValues(alpha: 0.7),
+                          AppColors.transparent,
+                          AppColors.black.withValues(alpha: 0.7),
                         ],
                       ),
                     ),

@@ -1,6 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:samurai_studios/features/episodes/data/models/episode_dto.dart';
-import 'package:samurai_studios/features/episodes/domain/entities/episode.dart';
+import 'package:samurai_studios/features/episodes/data/models/episode_model.dart';
 
 void main() {
   group('EpisodeDto', () {
@@ -20,7 +19,7 @@ void main() {
       };
 
       // Act
-      final dto = EpisodeDto.fromJson(json);
+      final dto = EpisodeModel.fromJson(json);
 
       // Assert
       expect(dto.id, 1);
@@ -32,7 +31,7 @@ void main() {
 
     test('should convert to domain entity correctly', () {
       // Arrange
-      final dto = EpisodeDto(
+      final dto = EpisodeModel(
         id: 1,
         name: 'Pilot',
         airDate: 'December 2, 2013',
@@ -53,12 +52,12 @@ void main() {
       expect(episode.name, 'Pilot');
       expect(episode.airDate, 'December 2, 2013');
       expect(episode.episode, 'S01E01');
-      expect(episode.characterCount, 2);
+      expect(episode.characters.length, 2);
     });
 
     test('should calculate characterCount from characters array length', () {
       // Arrange
-      final dto = EpisodeDto(
+      final dto = EpisodeModel(
         id: 2,
         name: 'Lawnmower Dog',
         airDate: 'December 9, 2013',
@@ -76,7 +75,7 @@ void main() {
       final episode = dto.toDomain();
 
       // Assert
-      expect(episode.characterCount, 3);
+      expect(episode.characters.length, 3);
     });
   });
 }

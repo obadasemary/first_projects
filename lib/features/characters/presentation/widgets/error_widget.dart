@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:samurai_studios/core/constants/app_colors.dart';
+// todo move to core (it used in multiple places)
 class ErrorDisplay extends StatelessWidget {
   final String message;
   final VoidCallback onRetry;
@@ -21,7 +22,7 @@ class ErrorDisplay extends StatelessWidget {
             Icon(
               Icons.error_outline,
               size: 64,
-              color: Colors.red[300],
+              color: AppColors.errorIcon,
             ),
             const SizedBox(height: 16),
             Text(
@@ -36,7 +37,7 @@ class ErrorDisplay extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 16,
-                color: Colors.grey[600],
+                color: AppColors.textGrey600,
               ),
             ),
             const SizedBox(height: 24),

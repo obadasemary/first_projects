@@ -1,4 +1,4 @@
-import 'package:samurai_studios/features/episodes/domain/entities/episode.dart';
+import 'package:samurai_studios/features/episodes/domain/entities/episode_entity.dart';
 
 sealed class EpisodeListState {
   const EpisodeListState();
@@ -6,7 +6,7 @@ sealed class EpisodeListState {
   R when<R>({
     required R Function() initial,
     required R Function() loading,
-    required R Function(List<Episode> episodes, int currentPage, bool hasNextPage, bool isLoadingMore) loaded,
+    required R Function(List<EpisodeEntity> episodes, int currentPage, bool hasNextPage, bool isLoadingMore) loaded,
     required R Function(String message) error,
   }) {
     if (this is Initial) {
@@ -32,7 +32,7 @@ class Loading extends EpisodeListState {
 }
 
 class Loaded extends EpisodeListState {
-  final List<Episode> episodes;
+  final List<EpisodeEntity> episodes;
   final int currentPage;
   final bool hasNextPage;
   final bool isLoadingMore;
@@ -45,7 +45,7 @@ class Loaded extends EpisodeListState {
   });
 
   Loaded copyWith({
-    List<Episode>? episodes,
+    List<EpisodeEntity>? episodes,
     int? currentPage,
     bool? hasNextPage,
     bool? isLoadingMore,

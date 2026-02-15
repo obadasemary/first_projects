@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:samurai_studios/core/constants/app_colors.dart';
 
 class EpisodeShimmer extends StatelessWidget {
   const EpisodeShimmer({super.key});
@@ -69,9 +70,9 @@ class _ShimmerCardState extends State<ShimmerCard>
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                       colors: [
-                        Colors.grey[300]!,
-                        Colors.grey[100]!,
-                        Colors.grey[300]!,
+                        AppColors.shimmerBase,
+                        AppColors.shimmerHighlight,
+                        AppColors.shimmerBase,
                       ],
                       stops: [
                         _animation.value - 0.3,
@@ -94,9 +95,9 @@ class _ShimmerCardState extends State<ShimmerCard>
                           borderRadius: BorderRadius.circular(4),
                           gradient: LinearGradient(
                             colors: [
-                              Colors.grey[300]!,
-                              Colors.grey[100]!,
-                              Colors.grey[300]!,
+                              AppColors.shimmerBase,
+                              AppColors.shimmerHighlight,
+                              AppColors.shimmerBase,
                             ],
                             stops: [
                               _animation.value - 0.3,
@@ -114,9 +115,9 @@ class _ShimmerCardState extends State<ShimmerCard>
                           borderRadius: BorderRadius.circular(4),
                           gradient: LinearGradient(
                             colors: [
-                              Colors.grey[300]!,
-                              Colors.grey[100]!,
-                              Colors.grey[300]!,
+                              AppColors.shimmerBase,
+                              AppColors.shimmerHighlight,
+                              AppColors.shimmerBase,
                             ],
                             stops: [
                               _animation.value - 0.3,
@@ -134,9 +135,9 @@ class _ShimmerCardState extends State<ShimmerCard>
                           borderRadius: BorderRadius.circular(4),
                           gradient: LinearGradient(
                             colors: [
-                              Colors.grey[300]!,
-                              Colors.grey[100]!,
-                              Colors.grey[300]!,
+                              AppColors.shimmerBase,
+                              AppColors.shimmerHighlight,
+                              AppColors.shimmerBase,
                             ],
                             stops: [
                               _animation.value - 0.3,

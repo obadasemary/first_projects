@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:samurai_studios/features/episodes/domain/entities/episode.dart';
+import 'package:samurai_studios/core/constants/app_colors.dart';
+import 'package:samurai_studios/features/episodes/domain/entities/episode_entity.dart';
 
 class EpisodeCard extends StatelessWidget {
-  final Episode episode;
+  final EpisodeEntity episode;
 
   const EpisodeCard({
     super.key,
@@ -29,6 +30,8 @@ class EpisodeCard extends StatelessWidget {
           child: Center(
             child: Text(
               episode.episode,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.bold,
@@ -40,6 +43,8 @@ class EpisodeCard extends StatelessWidget {
         ),
         title: Text(
           episode.name,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
           style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
@@ -53,15 +58,15 @@ class EpisodeCard extends StatelessWidget {
               'Air Date: ${episode.airDate}',
               style: TextStyle(
                 fontSize: 14,
-                color: Colors.grey[600],
+                color: AppColors.textGrey600,
               ),
             ),
             const SizedBox(height: 2),
             Text(
-              '${episode.characterCount} characters',
+              '${episode.characters.length} characters',
               style: TextStyle(
                 fontSize: 12,
-                color: Colors.grey[500],
+                color: AppColors.textGrey500,
               ),
             ),
           ],

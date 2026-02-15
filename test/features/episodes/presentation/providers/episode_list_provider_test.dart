@@ -4,7 +4,7 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:samurai_studios/core/network/api_result.dart';
 import 'package:samurai_studios/features/episodes/data/repositories/episode_repository_impl.dart';
-import 'package:samurai_studios/features/episodes/domain/entities/episode.dart';
+import 'package:samurai_studios/features/episodes/domain/entities/episode_entity.dart';
 import 'package:samurai_studios/features/episodes/domain/repositories/episode_repository.dart';
 import 'package:samurai_studios/features/episodes/presentation/providers/episode_list_provider.dart';
 import 'package:samurai_studios/features/episodes/presentation/state/episode_list_state.dart';
@@ -33,12 +33,17 @@ void main() {
     test('should load episodes on initialization', () async {
       // Arrange
       final mockEpisodes = [
-        const Episode(
+        const EpisodeEntity(
           id: 1,
           name: 'Pilot',
           airDate: 'December 2, 2013',
           episode: 'S01E01',
-          characterCount: 19,
+          url: 'https://rickandmortyapi.com/api/episode/1',
+          created: '2017-11-10T12:56:33.798Z',
+          characters: [
+            'https://rickandmortyapi.com/api/character/1',
+            'https://rickandmortyapi.com/api/character/2'
+          ],
         ),
       ];
 
@@ -106,22 +111,32 @@ void main() {
     test('should load more episodes when loadMore is called', () async {
       // Arrange
       final mockEpisodesPage1 = [
-        const Episode(
+        const EpisodeEntity(
           id: 1,
           name: 'Pilot',
           airDate: 'December 2, 2013',
           episode: 'S01E01',
-          characterCount: 19,
+          url: 'https://rickandmortyapi.com/api/episode/1',
+          created: '2017-11-10T12:56:33.798Z',
+          characters: [
+            'https://rickandmortyapi.com/api/character/1',
+            'https://rickandmortyapi.com/api/character/2'
+          ],
         ),
       ];
 
       final mockEpisodesPage2 = [
-        const Episode(
+        const EpisodeEntity(
           id: 2,
           name: 'Lawnmower Dog',
           airDate: 'December 9, 2013',
           episode: 'S01E02',
-          characterCount: 18,
+          url: 'https://rickandmortyapi.com/api/episode/1',
+          created: '2017-11-10T12:56:33.798Z',
+          characters: [
+            'https://rickandmortyapi.com/api/character/1',
+            'https://rickandmortyapi.com/api/character/2'
+          ],
         ),
       ];
 

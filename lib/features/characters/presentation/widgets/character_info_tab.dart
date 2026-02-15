@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:samurai_studios/features/characters/domain/entities/character.dart';
 import 'package:samurai_studios/features/characters/presentation/widgets/info_row_widget.dart';
+import 'package:samurai_studios/core/constants/app_colors.dart';
 
 class CharacterInfoTab extends StatelessWidget {
   final Character character;
@@ -111,9 +112,10 @@ class CharacterInfoTab extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
+                  // todo use localization
                   'Status',
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: Colors.grey[600],
+                        color: AppColors.textGrey600,
                       ),
                 ),
                 const SizedBox(height: 4),
@@ -129,7 +131,7 @@ class CharacterInfoTab extends StatelessWidget {
                   child: Text(
                     character.status.name.toUpperCase(),
                     style: const TextStyle(
-                      color: Colors.white,
+                      color: AppColors.white,
                       fontSize: 12,
                       fontWeight: FontWeight.bold,
                     ),
@@ -146,11 +148,11 @@ class CharacterInfoTab extends StatelessWidget {
   Color _getStatusColor() {
     switch (character.status) {
       case CharacterStatus.alive:
-        return Colors.green;
+        return AppColors.statusAlive;
       case CharacterStatus.dead:
-        return Colors.red;
+        return AppColors.statusDead;
       case CharacterStatus.unknown:
-        return Colors.grey;
+        return AppColors.statusUnknown;
     }
   }
 
@@ -170,13 +172,13 @@ class CharacterInfoTab extends StatelessWidget {
   Color _getGenderColor() {
     switch (character.gender) {
       case CharacterGender.male:
-        return Colors.blue;
+        return AppColors.genderMale;
       case CharacterGender.female:
-        return Colors.pink;
+        return AppColors.genderFemale;
       case CharacterGender.genderless:
-        return Colors.purple;
+        return AppColors.genderGenderless;
       case CharacterGender.unknown:
-        return Colors.grey;
+        return AppColors.genderUnknown;
     }
   }
 

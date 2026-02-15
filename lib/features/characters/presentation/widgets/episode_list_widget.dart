@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:samurai_studios/features/characters/domain/entities/episode.dart';
 import 'package:samurai_studios/features/characters/presentation/providers/character_episodes_provider.dart';
+import 'package:samurai_studios/core/constants/app_colors.dart';
 
 class EpisodeListWidget extends ConsumerWidget {
   final List<String> episodeUrls;
@@ -45,7 +46,7 @@ class EpisodeListWidget extends ConsumerWidget {
                   height: 20,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Colors.grey[300],
+                    color: AppColors.shimmerBase,
                     borderRadius: BorderRadius.circular(4),
                   ),
                 ),
@@ -54,7 +55,7 @@ class EpisodeListWidget extends ConsumerWidget {
                   height: 16,
                   width: 100,
                   decoration: BoxDecoration(
-                    color: Colors.grey[300],
+                    color: AppColors.shimmerBase,
                     borderRadius: BorderRadius.circular(4),
                   ),
                 ),
@@ -133,13 +134,13 @@ class EpisodeListWidget extends ConsumerWidget {
                 Icon(
                   Icons.calendar_today,
                   size: 14,
-                  color: Colors.grey[600],
+                  color: AppColors.textGrey600,
                 ),
                 const SizedBox(width: 4),
                 Text(
                   'Aired: ${episode.airDate}',
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: Colors.grey[600],
+                        color: AppColors.textGrey600,
                       ),
                 ),
               ],
@@ -177,7 +178,7 @@ class EpisodeListWidget extends ConsumerWidget {
             Text(
               message,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: Colors.grey[600],
+                    color: AppColors.textGrey600,
                   ),
               textAlign: TextAlign.center,
             ),

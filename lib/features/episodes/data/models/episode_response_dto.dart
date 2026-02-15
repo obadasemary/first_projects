@@ -1,8 +1,8 @@
-import 'package:samurai_studios/features/episodes/data/models/episode_dto.dart';
+import 'package:samurai_studios/features/episodes/data/models/episode_model.dart';
 
 class EpisodeResponseDto {
   final InfoDto info;
-  final List<EpisodeDto> results;
+  final List<EpisodeModel> results;
 
   const EpisodeResponseDto({
     required this.info,
@@ -12,8 +12,8 @@ class EpisodeResponseDto {
   factory EpisodeResponseDto.fromJson(Map<String, dynamic> json) {
     return EpisodeResponseDto(
       info: InfoDto.fromJson(json['info'] as Map<String, dynamic>),
-      results: (json['results'] as List<dynamic>)
-          .map((e) => EpisodeDto.fromJson(e as Map<String, dynamic>))
+      results: (json['results'] as List<dynamic>? ?? [])
+          .map((e) => EpisodeModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
   }

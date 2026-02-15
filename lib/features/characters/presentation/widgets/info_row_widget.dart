@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:samurai_studios/core/constants/app_colors.dart';
 
 class InfoRow extends StatelessWidget {
   final IconData icon;
@@ -33,7 +34,7 @@ class InfoRow extends StatelessWidget {
                 Text(
                   label,
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: Colors.grey[600],
+                        color: AppColors.textGrey600,
                       ),
                 ),
                 const SizedBox(height: 2),

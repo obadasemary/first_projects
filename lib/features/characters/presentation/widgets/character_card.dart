@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:samurai_studios/features/characters/domain/entities/character.dart';
 import 'package:samurai_studios/features/characters/presentation/screens/character_details_screen.dart';
+import 'package:samurai_studios/core/constants/app_colors.dart';
 
 class CharacterCard extends StatelessWidget {
   final Character character;
@@ -42,7 +43,7 @@ class CharacterCard extends StatelessWidget {
               placeholder: (context, url) => Container(
                 width: 60,
                 height: 60,
-                color: Colors.grey[300],
+                color: AppColors.shimmerBase,
                 child: const Center(
                   child: CircularProgressIndicator(strokeWidth: 2),
                 ),
@@ -50,8 +51,8 @@ class CharacterCard extends StatelessWidget {
               errorWidget: (context, url, error) => Container(
                 width: 60,
                 height: 60,
-                color: Colors.grey[300],
-                child: const Icon(Icons.person, color: Colors.grey),
+                color: AppColors.shimmerBase,
+                child: const Icon(Icons.person, color: AppColors.textGrey),
               ),
             ),
           ),
@@ -71,7 +72,7 @@ class CharacterCard extends StatelessWidget {
               '${character.species} - ${character.status.name}',
               style: TextStyle(
                 fontSize: 14,
-                color: Colors.grey[600],
+                color: AppColors.textGrey600,
               ),
             ),
             const SizedBox(height: 2),
@@ -79,7 +80,7 @@ class CharacterCard extends StatelessWidget {
               'Location: ${character.location.name}',
               style: TextStyle(
                 fontSize: 12,
-                color: Colors.grey[500],
+                color: AppColors.textGrey500,
               ),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
@@ -95,7 +96,7 @@ class CharacterCard extends StatelessWidget {
           child: Text(
             character.status.name.toUpperCase(),
             style: const TextStyle(
-              color: Colors.white,
+              color: AppColors.white,
               fontSize: 10,
               fontWeight: FontWeight.bold,
             ),
@@ -109,11 +110,11 @@ class CharacterCard extends StatelessWidget {
   Color _getStatusColor(CharacterStatus status) {
     switch (status) {
       case CharacterStatus.alive:
-        return Colors.green;
+        return AppColors.statusAlive;
       case CharacterStatus.dead:
-        return Colors.red;
+        return AppColors.statusDead;
       case CharacterStatus.unknown:
-        return Colors.grey;
+        return AppColors.statusUnknown;
     }
   }
 }

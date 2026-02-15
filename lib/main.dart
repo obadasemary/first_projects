@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:samurai_studios/core/constants/app_colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:samurai_studios/presentation/screens/home_screen.dart';
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.green,
+          seedColor: AppColors.primarySeed,
           brightness: Brightness.light,
         ),
         useMaterial3: true,

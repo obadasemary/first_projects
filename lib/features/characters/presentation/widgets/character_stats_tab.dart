@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:samurai_studios/core/constants/app_colors.dart';
 import 'package:samurai_studios/features/characters/domain/entities/character.dart';
 import 'package:samurai_studios/features/characters/presentation/widgets/stat_card_widget.dart';
 
@@ -34,7 +35,7 @@ class CharacterStatsTab extends StatelessWidget {
               icon: Icons.tv,
               label: 'Episodes',
               value: '${character.episodeCount}',
-              color: Colors.blue,
+              color: AppColors.genderMale,
               progress: _calculateEpisodeProgress(),
             ),
             StatCard(
@@ -47,7 +48,7 @@ class CharacterStatsTab extends StatelessWidget {
               icon: Icons.science,
               label: 'Species',
               value: character.species,
-              color: Colors.purple,
+              color: AppColors.genderGenderless,
             ),
             StatCard(
               icon: _getGenderIcon(),
@@ -130,7 +131,7 @@ class CharacterStatsTab extends StatelessWidget {
         Icon(
           icon,
           size: 20,
-          color: Colors.grey[600],
+          color: AppColors.textGrey600,
         ),
         const SizedBox(width: 12),
         Expanded(
@@ -140,7 +141,7 @@ class CharacterStatsTab extends StatelessWidget {
               Text(
                 label,
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: Colors.grey[600],
+                      color: AppColors.textGrey600,
                     ),
               ),
               Text(
@@ -165,11 +166,11 @@ class CharacterStatsTab extends StatelessWidget {
   Color _getStatusColor() {
     switch (character.status) {
       case CharacterStatus.alive:
-        return Colors.green;
+        return AppColors.statusAlive;
       case CharacterStatus.dead:
-        return Colors.red;
+        return AppColors.statusDead;
       case CharacterStatus.unknown:
-        return Colors.grey;
+        return AppColors.statusUnknown;
     }
   }
 
@@ -191,13 +192,13 @@ class CharacterStatsTab extends StatelessWidget {
   Color _getGenderColor() {
     switch (character.gender) {
       case CharacterGender.male:
-        return Colors.blue;
+        return AppColors.genderMale;
       case CharacterGender.female:
-        return Colors.pink;
+        return AppColors.genderFemale;
       case CharacterGender.genderless:
-        return Colors.purple;
+        return AppColors.genderGenderless;
       case CharacterGender.unknown:
-        return Colors.grey;
+        return AppColors.genderUnknown;
     }
   }
 

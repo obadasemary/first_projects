@@ -14,24 +14,24 @@ class EpisodeListScreen extends ConsumerStatefulWidget {
 }
 
 class _EpisodeListScreenState extends ConsumerState<EpisodeListScreen> {
-  final ScrollController _scrollController = ScrollController();
+  ScrollController? _scrollController;
 
   @override
   void initState() {
     super.initState();
-    _scrollController.addListener(_onScroll);
+    _scrollController = ScrollController();
+    _scrollController?.addListener(_onScroll);
   }
 
   @override
   void dispose() {
-    _scrollController.removeListener(_onScroll);
-    _scrollController.dispose();
+    _scrollController?.removeListener(_onScroll);
+    _scrollController?.dispose();
     super.dispose();
   }
 
   void _onScroll() {
-    if (_scrollController.position.pixels >=
-        _scrollController.position.maxScrollExtent - 200) {
+    if (_scrollController != null && _scrollController!.position.pixels >= _scrollController!.position.maxScrollExtent - 200) {
       // Load more when user is 200px from bottom
       final notifier = ref.read(episodeListNotifierProvider.notifier);
       notifier.loadMore();

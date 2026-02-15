@@ -4,6 +4,8 @@ import 'package:samurai_studios/core/network/api_result.dart';
 import 'package:samurai_studios/features/episodes/data/datasources/episode_remote_datasource.dart';
 import 'package:samurai_studios/features/episodes/domain/repositories/episode_repository.dart';
 
+import '../../../../core/network/dio_error.dart';
+
 class EpisodeRepositoryImpl implements EpisodeRepository {
   final EpisodeRemoteDataSource remoteDataSource;
 
@@ -29,26 +31,9 @@ class EpisodeRepositoryImpl implements EpisodeRepository {
 
       return Success(result);
     } on DioException catch (e) {
-      return Failure(_handleDioError(e), e);
+      return Failure(handleDioError(e), e);
     } catch (e) {
       return Failure('An unexpected error occurred', Exception(e.toString()));
-    }
-  }
-
-  String _handleDioError(DioException e) {
-    switch (e.type) {
-      case DioExceptionType.connectionTimeout:
-        return 'Connection timeout. Please try again.';
-      case DioExceptionType.receiveTimeout:
-        return 'Server not responding. Please try again.';
-      case DioExceptionType.badResponse:
-        return 'Server error: ${e.response?.statusCode}. Please try again later.';
-      case DioExceptionType.connectionError:
-        return 'No internet connection. Please check your network.';
-      case DioExceptionType.cancel:
-        return 'Request was cancelled.';
-      default:
-        return 'Network error occurred. Please try again.';
     }
   }
 }
